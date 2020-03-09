@@ -32,10 +32,16 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\categoria\Categoria.ts" />
+    <None Remove="ClientApp\src\app\sub-categoria\SubCategoria.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\categoria\Categoria.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\sub-categoria\SubCategoria.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\Imagenes\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

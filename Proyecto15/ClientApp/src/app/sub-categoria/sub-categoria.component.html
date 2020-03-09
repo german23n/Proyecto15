@@ -1,28 +1,28 @@
 
-<h1>Categoria</h1>
+<h1>Sub Categoria</h1>
 
 <button [routerLink]='["/invitados-agregar"]' class="btn btn-primary">Agregar Categoria</button>
 
-<p *ngIf="!(categoria && categoria.length)">
+<p *ngIf="!(subcategoria && subcategoria.length)">
   No existen Registro
 
 </p>
-<table class="table" *ngIf="(categoria && categoria.length)">
+<table class="table" *ngIf="(subcategoria && subcategoria.length)">
   <thead>
     <tr>
 
       <th>ID</th>
       <th>Nombre</th>
-     
+
     </tr>
   </thead>
-  <tr *ngFor="let categoria of categoria">
+  <tr *ngFor="let subcategoria of subcategoria">
 
-    <td>{{categoria.idCategoria}}</td>
-    <td>{{categoria.nombre}}</td>
-   
+    <td>{{subcategoria.idSubCategoria}}</td>
+    <td>{{subcategoria.nombre}}</td>
+
     <td>
-      <button type="button" class="btn btn-success" >Editar</button>
+      <button type="button" class="btn btn-success">Editar</button>
       <button class="btn btn-danger " (click)="delete(invitados)">
         Eliminar
       </button>
