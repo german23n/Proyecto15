@@ -10,8 +10,8 @@ using Proyecto15.models;
 namespace Proyecto15.Migrations
 {
     [DbContext(typeof(ApplicationDbcontext))]
-    [Migration("20200309035446_initialCreate2")]
-    partial class initialCreate2
+    [Migration("20200309101739_.")]
+    partial class _
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,30 +38,67 @@ namespace Proyecto15.Migrations
 
             modelBuilder.Entity("Proyecto15.models.CategoriaSubCategoria", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdCategoriaSubCategoria")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoriaIdCategoria")
+                    b.Property<int?>("IdCategoria1")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoria")
+                    b.Property<int?>("IdSubCategoria1")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdSubCategoria")
-                        .HasColumnType("int");
+                    b.HasKey("IdCategoriaSubCategoria");
 
-                    b.Property<int?>("SubCategoriaIdSubCategoria")
-                        .HasColumnType("int");
+                    b.HasIndex("IdCategoria1");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoriaIdCategoria");
-
-                    b.HasIndex("SubCategoriaIdSubCategoria");
+                    b.HasIndex("IdSubCategoria1");
 
                     b.ToTable("CategoriaSubCategorias");
+                });
+
+            modelBuilder.Entity("Proyecto15.models.Grupo", b =>
+                {
+                    b.Property<int>("IdGrupo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdGrupo");
+
+                    b.ToTable("Grupos");
+                });
+
+            modelBuilder.Entity("Proyecto15.models.Institucion", b =>
+                {
+                    b.Property<int>("IdInstitucion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Alias")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IdCategoriaSubCategoria1")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdGrupo1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RazonSocial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdInstitucion");
+
+                    b.HasIndex("IdCategoriaSubCategoria1");
+
+                    b.HasIndex("IdGrupo1");
+
+                    b.ToTable("Instituciones");
                 });
 
             modelBuilder.Entity("Proyecto15.models.SubCategoria", b =>
@@ -81,13 +118,24 @@ namespace Proyecto15.Migrations
 
             modelBuilder.Entity("Proyecto15.models.CategoriaSubCategoria", b =>
                 {
-                    b.HasOne("Proyecto15.models.Categoria", "Categoria")
+                    b.HasOne("Proyecto15.models.Categoria", "IdCategoria")
                         .WithMany()
-                        .HasForeignKey("CategoriaIdCategoria");
+                        .HasForeignKey("IdCategoria1");
 
-                    b.HasOne("Proyecto15.models.SubCategoria", "SubCategoria")
+                    b.HasOne("Proyecto15.models.SubCategoria", "IdSubCategoria")
                         .WithMany("CategoriaSubCategorias")
-                        .HasForeignKey("SubCategoriaIdSubCategoria");
+                        .HasForeignKey("IdSubCategoria1");
+                });
+
+            modelBuilder.Entity("Proyecto15.models.Institucion", b =>
+                {
+                    b.HasOne("Proyecto15.models.CategoriaSubCategoria", "IdCategoriaSubCategoria")
+                        .WithMany()
+                        .HasForeignKey("IdCategoriaSubCategoria1");
+
+                    b.HasOne("Proyecto15.models.Grupo", "IdGrupo")
+                        .WithMany()
+                        .HasForeignKey("IdGrupo1");
                 });
 #pragma warning restore 612, 618
         }

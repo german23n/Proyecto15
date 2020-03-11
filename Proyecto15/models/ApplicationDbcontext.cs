@@ -18,5 +18,8 @@ namespace Proyecto15.models
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<SubCategoria> SubCategorias { get; set; }
         public DbSet<CategoriaSubCategoria> CategoriaSubCategorias { get; set; }
+        public DbSet<Grupo> Grupos { get; set; }
+        public DbSet<Institucion> Instituciones { get; set; }
+       
     }
 }

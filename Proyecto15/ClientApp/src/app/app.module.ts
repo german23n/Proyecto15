@@ -13,6 +13,8 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaService } from './categoria/categoria.service';
 import { SubCategoriaComponent } from './sub-categoria/sub-categoria.component';
 import { SubCategoriaService } from './sub-categoria/sub-categoria.service';
+import { InstitucionComponent } from './institucion/institucion.component';
+import { InstitucionService } from './institucion/institucion.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { SubCategoriaService } from './sub-categoria/sub-categoria.service';
     CounterComponent,
     FetchDataComponent,
     CategoriaComponent,
-    SubCategoriaComponent
+    SubCategoriaComponent,
+    InstitucionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,10 +37,11 @@ import { SubCategoriaService } from './sub-categoria/sub-categoria.service';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'Categoria', component: CategoriaComponent },
       { path: 'subCategoria', component: SubCategoriaComponent },
+      {path:'Institucion', component: InstitucionComponent},
       
     ])
   ],
-  providers: [CategoriaService, SubCategoriaService],
+  providers: [CategoriaService, SubCategoriaService, InstitucionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

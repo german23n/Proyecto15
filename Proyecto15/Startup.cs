@@ -29,7 +29,7 @@ namespace Proyecto15
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            var connection = @"server=CNQRH12\SQLEXPRESS01; DataBase=GestionEventos; Trusted_Connection=True; ConnectRetryCount=0";
+            var connection = @"server=CNQRH12\SQLEXPRESS01; DataBase=GestionEvento; Trusted_Connection=True; ConnectRetryCount=0";
             services.AddDbContext<ApplicationDbcontext>(options => options.UseSqlServer(connection));
         }
 

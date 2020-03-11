@@ -10,11 +10,10 @@ namespace Proyecto15.models
     {
 
         [Key]
-        public int Id { get; set; }
-        public int IdCategoria { get; set; }
-        public int IdSubCategoria { get; set; }
-        public Categoria Categoria { get; set; }
-        public SubCategoria SubCategoria { get; set; }
+        public int IdCategoriaSubCategoria { get; set; }
+    
+        public Categoria IdCategoria { get; set; }
+        public SubCategoria IdSubCategoria { get; set; }
 
     }
 }
