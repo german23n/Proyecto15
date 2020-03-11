@@ -9,50 +9,50 @@ using Proyecto15.models;
 
 namespace Proyecto15.Controllers
 {
-    [Route("api/Institucion")]
+    [Route("api/Grupo")]
     [ApiController]
-    public class InstitucionsController : ControllerBase
+    public class GrupoesController : ControllerBase
     {
         private readonly ApplicationDbcontext _context;
 
-        public InstitucionsController(ApplicationDbcontext context)
+        public GrupoesController(ApplicationDbcontext context)
         {
             _context = context;
         }
 
-        // GET: api/Institucions
+        // GET: api/Grupoes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Institucion>>> GetInstituciones()
+        public async Task<ActionResult<IEnumerable<Grupo>>> GetGrupos()
         {
-            return await _context.Instituciones.Include(x => x.IdGrupo).ToListAsync();
+            return await _context.Grupos.ToListAsync();
         }
 
-        // GET: api/Institucions/5
+        // GET: api/Grupoes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Institucion>> GetInstitucion(int id)
+        public async Task<ActionResult<Grupo>> GetGrupo(int id)
         {
-            var institucion = await _context.Instituciones.FindAsync(id);
+            var grupo = await _context.Grupos.FindAsync(id);
 
-            if (institucion == null)
+            if (grupo == null)
             {
                 return NotFound();
             }
 
-            return institucion;
+            return grupo;
         }
 
-        // PUT: api/Institucions/5
+        // PUT: api/Grupoes/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutInstitucion(int id, Institucion institucion)
+        public async Task<IActionResult> PutGrupo(int id, Grupo grupo)
         {
-            if (id != institucion.IdInstitucion)
+            if (id != grupo.IdGrupo)
             {
                 return BadRequest();
             }
 
-            _context.Entry(institucion).State = EntityState.Modified;
+            _context.Entry(grupo).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace Proyecto15.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InstitucionExists(id))
+                if (!GrupoExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace Proyecto15.Controllers
             return NoContent();
         }
 
-        // POST: api/Institucions
+        // POST: api/Grupoes
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Institucion>> PostInstitucion(Institucion institucion)
+        public async Task<ActionResult<Grupo>> PostGrupo(Grupo grupo)
         {
-            _context.Instituciones.Add(institucion);
+            _context.Grupos.Add(grupo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInstitucion", new { id = institucion.IdInstitucion }, institucion);
+            return CreatedAtAction("GetGrupo", new { id = grupo.IdGrupo }, grupo);
         }
 
-        // DELETE: api/Institucions/5
+        // DELETE: api/Grupoes/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Institucion>> DeleteInstitucion(int id)
+        public async Task<ActionResult<Grupo>> DeleteGrupo(int id)
         {
-            var institucion = await _context.Instituciones.FindAsync(id);
-            if (institucion == null)
+            var grupo = await _context.Grupos.FindAsync(id);
+            if (grupo == null)
             {
                 return NotFound();
             }
 
-            _context.Instituciones.Remove(institucion);
+            _context.Grupos.Remove(grupo);
             await _context.SaveChangesAsync();
 
-            return institucion;
+            return grupo;
         }
 
-        private bool InstitucionExists(int id)
+        private bool GrupoExists(int id)
         {
-            return _context.Instituciones.Any(e => e.IdInstitucion == id);
+            return _context.Grupos.Any(e => e.IdGrupo == id);
         }
     }
 }

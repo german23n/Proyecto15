@@ -1,0 +1,35 @@
+
+<h1>Grupo</h1>
+
+<button [routerLink]='["/invitados-agregar"]' class="btn btn-primary">Agregar Categoria</button>
+
+<p *ngIf="!(grupo && grupo.length)">
+  No existen Registro
+
+</p>
+<table class="table" *ngIf="(grupo && grupo.length)">
+  <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>Nombre</th>
+
+    </tr>
+  </thead>
+  <tr *ngFor="let grupo of grupo">
+
+    <td>{{grupo.idGrupo}}</td>
+    <td>{{grupo.nombre}}</td>
+
+    <td>
+      <button type="button" class="btn btn-success">Editar</button>
+      <button class="btn btn-danger " (click)="delete(invitados)">
+        Eliminar
+      </button>
+
+
+
+    </td>
+
+  </tr>
+</table>

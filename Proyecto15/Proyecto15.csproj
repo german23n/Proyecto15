@@ -34,12 +34,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\categoria\Categoria.ts" />
+    <None Remove="ClientApp\src\app\grupo\Grupo.ts" />
     <None Remove="ClientApp\src\app\institucion\Institucion.ts" />
     <None Remove="ClientApp\src\app\sub-categoria\SubCategoria.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\categoria\Categoria.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\grupo\Grupo.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\institucion\Institucion.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\sub-categoria\SubCategoria.ts" />
   </ItemGroup>

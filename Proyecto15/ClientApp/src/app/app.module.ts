@@ -15,6 +15,8 @@ import { SubCategoriaComponent } from './sub-categoria/sub-categoria.component';
 import { SubCategoriaService } from './sub-categoria/sub-categoria.service';
 import { InstitucionComponent } from './institucion/institucion.component';
 import { InstitucionService } from './institucion/institucion.service';
+import { GrupoComponent } from './grupo/grupo.component';
+import { GrupoService } from './grupo/grupo.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { InstitucionService } from './institucion/institucion.service';
     FetchDataComponent,
     CategoriaComponent,
     SubCategoriaComponent,
-    InstitucionComponent
+    InstitucionComponent,
+    GrupoComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,12 +39,21 @@ import { InstitucionService } from './institucion/institucion.service';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'Categoria', component: CategoriaComponent },
+      { path: 'Grupo', component: GrupoComponent},
       { path: 'subCategoria', component: SubCategoriaComponent },
-      {path:'Institucion', component: InstitucionComponent},
+      { path: 'Institucion', component: InstitucionComponent },
+      { path: 'Institucion', component: InstitucionComponent },
+
+    
+      
+
+      
+    
+     
       
     ])
   ],
-  providers: [CategoriaService, SubCategoriaService, InstitucionService],
+  providers: [CategoriaService, SubCategoriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
