@@ -1,6 +1,6 @@
 <h1>Instituciones</h1>
 
-<button [routerLink]='["/invitados-agregar"]' class="btn btn-primary">Agregar Categoria</button>
+<button [routerLink]='["/Agregar-Institucion"]' class="btn btn-primary">Agregar Categoria</button>
 
 <p *ngIf="!(institucion && institucion.length)">
   No existen Registro
@@ -22,10 +22,10 @@
     <td>{{institucion.idInstitucion}}</td>
     <td>{{institucion.razonSocial}}</td>
     <td>{{institucion.alias}}</td>
-    <td>{{institucion.idGrupo}}</td>
+    <td>{{institucion.idGrupo.nombre }}</td>
 
     <td>
-      <button type="button" class="btn btn-success">Editar</button>
+      <button type="button" class="btn btn-success"  [routerLink]='["/Editar-Institucion/" + institucion.idInstitucion]'>Editar</button>
       <button class="btn btn-danger " (click)="delete(invitados)">
         Eliminar
       </button>

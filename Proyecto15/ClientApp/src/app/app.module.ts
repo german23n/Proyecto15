@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { InstitucionComponent } from './institucion/institucion.component';
 import { InstitucionService } from './institucion/institucion.service';
 import { GrupoComponent } from './grupo/grupo.component';
 import { GrupoService } from './grupo/grupo.service';
+import { InstitucionFormsComponent } from './Institucion/institucion-forms/institucion-forms.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,13 @@ import { GrupoService } from './grupo/grupo.service';
     SubCategoriaComponent,
     InstitucionComponent,
     GrupoComponent,
+    InstitucionFormsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -43,6 +46,9 @@ import { GrupoService } from './grupo/grupo.service';
       { path: 'subCategoria', component: SubCategoriaComponent },
       { path: 'Institucion', component: InstitucionComponent },
       { path: 'Institucion', component: InstitucionComponent },
+      { path: 'Agregar-Institucion', component: InstitucionFormsComponent },
+      { path: 'Editar-Institucion', component: InstitucionFormsComponent },
+
 
     
       
