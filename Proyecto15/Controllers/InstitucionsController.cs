@@ -24,7 +24,7 @@ namespace Proyecto15.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Institucion>>> GetInstituciones()
         {
-            return await _context.Instituciones.Include(x => x.IdGrupo ).Include(x=> x.IdCategoriaSubCategoria).ToListAsync();
+            return await _context.Instituciones.Include(x => x.IdGrupo).Include(x=> x.IdCategoriaSubCategoria).ToListAsync();
         }
 
         // GET: api/Institucions/5

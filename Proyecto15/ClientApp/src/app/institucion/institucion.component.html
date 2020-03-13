@@ -14,6 +14,8 @@
       <th>Nombre</th>
       <th>Alias</th>
       <th>Grupo</th>
+      <th>Categoria</th>
+      <th>Sub Categoria</th>
 
     </tr>
   </thead>
@@ -23,12 +25,14 @@
     <td>{{institucion.razonSocial}}</td>
     <td>{{institucion.alias}}</td>
     <td>{{institucion.idGrupo.nombre }}</td>
+    <td>{{institucion.ICSC }}</td>
 
     <td>
-      <button type="button" class="btn btn-success"  [routerLink]='["/Editar-Institucion/" + institucion.idInstitucion]'>Editar</button>
-      <button class="btn btn-danger " (click)="delete(invitados)">
+      <button type="button" class="btn btn-success"  [routerLink]='["/Editar-institucion/" + institucion.idInstitucion]'>Editar</button>
+      <button class="btn btn-danger " >
+
         Eliminar
-      </button>
+      </button> 
 
 
 

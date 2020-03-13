@@ -37,8 +37,6 @@ export class InstitucionFormsComponent implements OnInit {
       this.modoEdicion = true;
       this.institucionId = params["id"];
 
-
-
       this.InsititucionService.getinstituciones(this.institucionId.toString())
         .subscribe(institucion => this.cargarFormulario(institucion),
           error => this.router.navigate(["/institucion"]));
@@ -68,7 +66,6 @@ export class InstitucionFormsComponent implements OnInit {
       this.InsititucionService.updateInstitucion(Institucion)
         .subscribe(Institucion => this.onSaveSuccess(),
           error => console.error(error));
-
 
     } else {
       //Agregar Registro

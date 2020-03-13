@@ -18,6 +18,7 @@ import { InstitucionService } from './institucion/institucion.service';
 import { GrupoComponent } from './grupo/grupo.component';
 import { GrupoService } from './grupo/grupo.service';
 import { InstitucionFormsComponent } from './Institucion/institucion-forms/institucion-forms.component';
+import { CategoriaSubCategoriaService } from './institucion/categoria-sub-categoria.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { InstitucionFormsComponent } from './Institucion/institucion-forms/insti
       { path: 'Institucion', component: InstitucionComponent },
       { path: 'Institucion', component: InstitucionComponent },
       { path: 'Agregar-Institucion', component: InstitucionFormsComponent },
-      { path: 'Editar-Institucion', component: InstitucionFormsComponent },
+      { path: 'Editar-institucion', component: InstitucionFormsComponent },
 
 
     
@@ -59,7 +60,7 @@ import { InstitucionFormsComponent } from './Institucion/institucion-forms/insti
       
     ])
   ],
-  providers: [CategoriaService, SubCategoriaService],
+  providers: [CategoriaService, SubCategoriaService, InstitucionService, CategoriaSubCategoriaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

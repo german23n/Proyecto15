@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InstitucionService } from './institucion.service';
-import { Iinstitucion } from './Institucion';
+import { Iinstitucion, ICSC } from './Institucion';
 
 @Component({
   selector: 'app-institucion',
@@ -9,12 +9,19 @@ import { Iinstitucion } from './Institucion';
 })
 export class InstitucionComponent implements OnInit {
 
-  constructor(private InstitucionService: InstitucionService) { }
+  constructor(private InstitucionService: InstitucionService,
+    private CategoriaSubCategoriaService: CategoriaSubCategoriaService) { }
+ 
 
   institucion: Iinstitucion[];
+  categoriSubCategoria: ICSC[];
 
   ngOnInit() {
     this.InstitucionService.getInstitucion()
+      .subscribe(institucionDesdeWS => this.institucion = institucionDesdeWS,
+        error => console.error(error));
+
+    this.CategoriaSubCategoriaService.getInstitucion()
       .subscribe(institucionDesdeWS => this.institucion = institucionDesdeWS,
         error => console.error(error));
 

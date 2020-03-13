@@ -16,5 +16,7 @@ namespace Proyecto15.models
         public SubCategoria IdSubCategoria { get; set; }
 
     }
+
+
 }
 

@@ -9,6 +9,7 @@ using Proyecto15.models;
 
 namespace Proyecto15.Controllers
 {
+
     [Route("api/CategoriaSubCategorias")]
     [ApiController]
     public class CategoriaSubCategoriasController : ControllerBase
@@ -24,7 +25,7 @@ namespace Proyecto15.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoriaSubCategoria>>> GetCategoriaSubCategorias()
         {
-            return await _context.CategoriaSubCategorias.Include(x=>x.IdSubCategoria).Include(x=> x.IdCategoria).ToListAsync();
+            return await _context.CategoriaSubCategorias.Include(x=>x.IdCategoria).ToListAsync();
         }
 
         // GET: api/CategoriaSubCategorias/5
