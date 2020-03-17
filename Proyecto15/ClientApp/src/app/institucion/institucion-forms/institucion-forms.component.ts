@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { InstitucionService } from '../institucion.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Iinstitucion } from '../Institucion';
+import { CategoriaService } from '../../categoria/categoria.service';
+import { ICategoria } from '../../categoria/Categoria';
 
 @Component({
   selector: 'app-institucion-forms',
@@ -13,6 +15,7 @@ export class InstitucionFormsComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private InsititucionService: InstitucionService,
+    private categoriaService : CategoriaService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
@@ -20,13 +23,21 @@ export class InstitucionFormsComponent implements OnInit {
   modoEdicion: boolean = false
   institucionId: number;
 
+  categoria : ICategoria[];
+
 
   ngOnInit() {
+
+    this.categoriaService.getCategoria()
+      .subscribe(categoriaDesdeWS => this.categoria = categoriaDesdeWS,
+        error => console.error(error));
+
     this.formGroup = this.fb.group({
       
       razonSocial: '',
       alias: '',
       idGrupo: ''
+
 
     });
 

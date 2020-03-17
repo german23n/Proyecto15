@@ -8,7 +8,9 @@ export interface Iinstitucion {
   razonSocial: string;
   alias: string;
   idGrupo: IGrupo;
-  idCSC: ICSC;
+  IdCSC: number;
+ 
+
 
 
 

@@ -14,29 +14,36 @@
       <th>Nombre</th>
       <th>Alias</th>
       <th>Grupo</th>
-      <th>Categoria</th>
-      <th>Sub Categoria</th>
+ 
 
     </tr>
   </thead>
   <tr *ngFor="let institucion of institucion">
 
+
     <td>{{institucion.idInstitucion}}</td>
     <td>{{institucion.razonSocial}}</td>
     <td>{{institucion.alias}}</td>
     <td>{{institucion.idGrupo.nombre }}</td>
-    <td>{{institucion.ICSC }}</td>
+
+
+
+
+
 
     <td>
-      <button type="button" class="btn btn-success"  [routerLink]='["/Editar-institucion/" + institucion.idInstitucion]'>Editar</button>
-      <button class="btn btn-danger " >
+
+      <button type="button" class="btn btn-success" [routerLink]='["/Editar-institucion/" + institucion.idInstitucion]'>Editar</button>
+      <button class="btn btn-danger ">
 
         Eliminar
-      </button> 
+      </button>
 
 
 
     </td>
+
+
 
   </tr>
 </table>

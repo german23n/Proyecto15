@@ -60,7 +60,7 @@ import { CategoriaSubCategoriaService } from './institucion/categoria-sub-catego
       
     ])
   ],
-  providers: [CategoriaService, SubCategoriaService, InstitucionService, CategoriaSubCategoriaService],
+  providers: [CategoriaService, SubCategoriaService, InstitucionService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
