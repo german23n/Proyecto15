@@ -55,20 +55,58 @@
          [ngClass]="{'has-error': (formGroup.get('idGrupo').touched || formGroup.get('idGrupo').dirty) && !formGroup.get('idGrupo').valid }">
 
       <label class="col-md-2 control-label"
-             for="nombreId">Grupo</label>
+             for="nombreId">Grupos</label>
 
 
       <div class="col-md-8">
-        
+
 
         <select class="custom-select">
-          <option selected>Seleccione un grupo</option>
-          <option value="1" *ngFor="let categoria of categoria"> {{categoria.nombre}}</option>
-      
+          <option selected>-----</option>
+          <option value="1" *ngFor="let grupo of grupo"> {{grupo.nombre}}</option>
+
         </select>
 
       </div>
     </div>
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('idGrupo').touched || formGroup.get('idGrupo').dirty) && !formGroup.get('idGrupo').valid }">
+
+      <label class="col-md-2 control-label"
+             for="nombreId">Categorias</label>
+
+
+      <div class="col-md-8">
+
+
+        <select class="custom-select">
+          <option selected>-----</option>
+          <option value="1" *ngFor="let categoria of categoria"> {{categoria.nombre}}</option>
+
+        </select>
+
+      </div>
+    </div>
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('idGrupo').touched || formGroup.get('idGrupo').dirty) && !formGroup.get('idGrupo').valid }">
+
+      <label class="col-md-2 control-label"
+             for="nombreId">Sub-Categorias</label>
+
+
+      <div class="col-md-8">
+
+
+        <select class="custom-select">
+          <option selected>-----</option>
+          <option value="1" *ngFor="let subCategoria of subCategoria"> {{subCategoria.nombre}}</option>
+
+        </select>
+
+      </div>
+    </div>
+
+
 
 
 

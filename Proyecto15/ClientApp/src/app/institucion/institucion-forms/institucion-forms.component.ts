@@ -5,6 +5,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Iinstitucion } from '../Institucion';
 import { CategoriaService } from '../../categoria/categoria.service';
 import { ICategoria } from '../../categoria/Categoria';
+import { ISCategoria } from '../../sub-categoria/SubCategoria';
+import { IGrupo } from '../../grupo/Grupo';
+import { GrupoService } from '../../grupo/grupo.service';
+import { SubCategoriaService } from '../../sub-categoria/sub-categoria.service';
 
 @Component({
   selector: 'app-institucion-forms',
@@ -15,21 +19,35 @@ export class InstitucionFormsComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private InsititucionService: InstitucionService,
-    private categoriaService : CategoriaService,
+    private categoriaService: CategoriaService,
+    private SubcategoriaService: SubCategoriaService,
+    private grupoService: GrupoService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
+
 
   formGroup: FormGroup;
   modoEdicion: boolean = false
   institucionId: number;
 
-  categoria : ICategoria[];
+
+  grupo: IGrupo[];
+  categoria: ICategoria[];
+  subCategoria: ISCategoria[];
+
+
 
 
   ngOnInit() {
 
     this.categoriaService.getCategoria()
       .subscribe(categoriaDesdeWS => this.categoria = categoriaDesdeWS,
+        error => console.error(error));
+    this.SubcategoriaService.getSubCategoria()
+      .subscribe(SubcategoriaDesdeWS => this.subCategoria = SubcategoriaDesdeWS,
+        error => console.error(error));
+    this.grupoService.getGrupo()
+      .subscribe( grupoDesdeWS => this.grupo = grupoDesdeWS,
         error => console.error(error));
 
     this.formGroup = this.fb.group({
